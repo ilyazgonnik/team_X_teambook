@@ -319,7 +319,7 @@ namespace NT{
 }
 using ll = int64_t;
 
-vector<pair<int, int> > CRAZY_factorization(int n){
+vector<pair<int, int> > factorization(int n){
     auto v=NT::factorize(n);
     vector<pair<int, int>> ans(0);
     int last=-1;
