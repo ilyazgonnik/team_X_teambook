@@ -6,5 +6,5 @@ void dfs(int u){
             dfs(v);
         }
     }
-    time_out[u]=timer++;
+    time_out[u]=timer;
 }
