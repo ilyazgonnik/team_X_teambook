@@ -395,7 +395,7 @@ void Graph::dfs(int u){
             dfs(v);
         }
     }
-    time_out[u]=dfs_timer++;
+    time_out[u]=dfs_timer;
 }//time_in, time_out
 
 void Graph::dfsS_C1(int u){
