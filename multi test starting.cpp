@@ -17,7 +17,7 @@ template <typename Head, typename... Tail> void deb_out(Head H, Tail... T) { cer
 #pragma comment(linker, "/stack:200000000")
 #pragma GCC optimize("Ofast", "O3")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,avx,avx2")
-
+#define all(x) x.begin(), x.end()
 
 
 int32_t main()
