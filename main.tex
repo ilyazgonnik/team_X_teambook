@@ -1,0 +1,136 @@
+\documentclass[a4paper,twocolumn]{extarticle}
+
+% --- Современная настройка кодировки и русского языка ---
+\usepackage[T2A]{fontenc}          % поддержка кириллицы в pdfLaTeX
+\usepackage[russian,english]{babel} % порядок языков не критичен
+\usepackage{lmodern}               % современные латинские шрифты
+\usepackage{anyfontsize}
+%\renewcommand{\normalsize}{\fontsize{7pt}{8.4pt}\selectfont}
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage[a4paper,top=0.5cm,bottom=1.0cm,left=1.0cm,right=0.5cm,nomarginpar,foot=0.3cm,includehead]{geometry}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\lstdefinestyle{codestyle}{
+    language=C++,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{
+    style=codestyle,
+    extendedchars=true, % исправлено: \true → true
+}
+
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{30pt}
+
+\begin{document}
+    \pagestyle{fancy}
+    \fancyhead[LO]{St. Petersburg State University (Ananev, Kuznetsov, Zgonnik)}
+    \fancyhead[R]{Page \thepage~of~\pageref{LastPage}}
+
+{\fontsize{7.8pt}{8.5pt}\selectfont
+    \tableofcontents
+    \newpage
+    \input{clion-setup.tex}
+
+    \section{Теория чисел}
+    \input{algos/chinese remainder theorem/chinese-remainder-theorem.tex}
+    \input{algos/miller rabin/miller-rabin.tex}
+    \input{algos/berlekamp massey/berlekamp-massey.tex}
+
+    \subsection{Линейное решето}
+    \lstinputlisting{algos/linear-sieve.cpp}
+
+    \subsection{Алгоритм Шенкса}
+    \lstinputlisting{algos/baby-step-giant-step/1.cpp}
+
+    \section{Графы}
+    \input{algos/SCC and 2SAT/scc and 2sat.tex}
+    \input{algos/euler/euler.tex}
+    \input{algos/edge-2-connectivity/edge-2-connectivity.tex}
+    \input{algos/dcp offline/dcp offline.tex}
+    \input{algos/general weighted matching/matching.tex}
+    \input{algos/dominator tree/dominator tree.tex}
+    \input{algos/hungarian/hungarian.tex}
+    \input{algos/two-chinese/two-chinese.tex}
+
+    \section{Cвёртки}
+    \input{algos/bit convolutions/bit convolutions.tex}
+    \input{algos/fft/fft.tex}
+
+    \section{Структуры данных}
+    \input{algos/segment tree and fenwick/segment tree and fenwick.tex}
+    \input{algos/bit trie/bit trie.tex}
+    \input{algos/ordered set/ordered-set.tex}
+    \input{algos/dynamic_bitset/dynamic_bitset.tex}
+    \input{algos/cht/cht.tex}
+    \input{algos/centroids/centroids.tex}
+    \input{algos/li-chao/li-chao.tex}
+    \input{algos/min-kinetic-segment-tree/kst.tex}
+    \input{algos/treap/treap.tex}
+
+    \section{Строковые алгоритмы}
+    \input{algos/prefix-function/prefix-function.tex}
+    \input{algos/z-function/z-function.tex}
+    \input{algos/manacher/manacher.tex}
+    \input{algos/sufarray/sufarray.tex}
+
+    \subsection{Алгоритм Ахо --- Корасик}
+    \input{algos/aho corasick/aho corasick.tex}
+
+    \input{algos/palindromic tree/palindromic tree.tex}
+
+    \section{Потоки}
+    \input{algos/dinic/dinic.tex}
+    \input{algos/mincost k-flow/mincost k-flow.tex}
+
+    \input{algos/gauss/gauss.tex}
+    \input{algos/hamiltonian/hamiltonian.tex}
+
+    \section{Геома}
+    \input{algos/geometry/geometry.tex}
+    \input{algos/mo/hilbertorder.tex}
+    \input{algos/simplex/simplex.tex}
+    \input{algos/continued fractions/cf.tex}
+
+    \section{Разное}
+    \input{miscellaneous}
+    \onecolumn
+}
+    \newpage
+    \input{hexagonal.tex}
+\end{document}
