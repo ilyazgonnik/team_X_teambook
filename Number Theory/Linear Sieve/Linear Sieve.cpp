@@ -13,3 +13,20 @@ void linear_sieve(){
         }
     }
 }
+
+vector<pair<int, int> > factorization(int n){
+    vector<pair<int, int> > ans(0);
+    int last=-1;
+    int nn=n;
+    while(nn!=1){
+        if(last!=lp[nn]){
+            ans.push_back({lp[nn], 1});
+            last=lp[nn];
+        }
+        else{
+            ans[ans.size()-1].second++;
+        }
+        nn/=lp[nn];
+    }
+    return ans;
+}
