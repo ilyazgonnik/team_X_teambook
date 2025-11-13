@@ -1,5 +1,5 @@
 name: Build LaTeX PDF
- 
+  
 on:
   push:
     branches: [ main ]
