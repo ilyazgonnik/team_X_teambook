@@ -3,6 +3,16 @@
 % --- Современная настройка кодировки и русского языка ---
 \usepackage[utf8]{inputenc}
 
+\usepackage{listings}
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    texcl=true, % комментарии как LaTeX код
+    breaklines=true,
+    basicstyle=\small\ttfamily,
+    columns=fullflexible
+}
+
 \usepackage[T2A]{fontenc}          % поддержка кириллицы в pdfLaTeX
 \usepackage[russian,english]{babel} % порядок языков не критичен
 \usepackage{lmodern}               % современные латинские шрифты
