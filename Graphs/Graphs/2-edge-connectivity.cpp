@@ -117,5 +117,4 @@ vector<bool> CutPoints(vector<vector<int> > &adj){
     return ans;
 }//isolated vertice - yes
 //extra log - for you
-
 //for checking - use 1046-С
