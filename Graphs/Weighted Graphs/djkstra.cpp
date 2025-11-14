@@ -24,7 +24,7 @@ pair<vector<int>, vector<int>> dijkstra(vector<vector<pair<int, int>>>& g, int s
             if (d[cur] + w < d[to]) {
                 d[to] = d[cur] + w;
                 p[to] = cur;
-                pq.push({-distances[to], to});
+                pq.push({-d[to], to});
             }
         }
     }
