@@ -14,4 +14,4 @@ vector<int> shifts(vector<int> &a, vector<int> &b){
         }
     }
     return ans;
-}//строка a в строку b в положительном направлении (a+shift=b) 
+}//string a to string b in + direction (a+shift=b) 
