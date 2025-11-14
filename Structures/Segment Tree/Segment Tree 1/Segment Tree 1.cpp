@@ -1,4 +1,4 @@
-//поддерживается такое условие - сумма на путях до вершин=листьев равна РЕАЛЬНОМУ значению листа
+//Support the fact: "sum" on paths from vertices=leafs are REAL values of the leafs.
 
 struct segment_tree{
     int N;
@@ -13,7 +13,7 @@ int operation(int now_left, int now_right){
     .return min(now_left, now_right);//min
     .return max(now_left, now_right);//max
     .return gcd(now_left, now_right);//gcd 
-    .return (now_left*now_right)%mod;//умножение по модулю
+    .return (now_left*now_right)%mod;//multiplication by modulo
 }
 
 int neutral(){
@@ -21,7 +21,7 @@ int neutral(){
     .return inf;//min
     .return -inf;//max
     .return 0;//gcd
-    .return 1;//умножение (?по модулю?)
+    .return 1;//multiplication (?by modulo?)
 }
 
 bool in(segment_tree &st, int v, int l, int r){
@@ -31,7 +31,7 @@ bool in(segment_tree &st, int v, int l, int r){
     else{
         return false;
     }
-}//лежит ли конус v в промежутке [l, r)
+}//Is the cone of v in [l, r)
 
 bool intersect(segment_tree &st, int v, int l, int r){
     if(st.left[v]>=r || st.right[v]<=l){
@@ -40,7 +40,7 @@ bool intersect(segment_tree &st, int v, int l, int r){
     else{
         return true;
     }
-}//пересекается ли конус v с промежутком [l, r)
+}//Is the cone of v intersecting with [l, r)
 
 int res_number(segment_tree &st, int pos){
     pos+=(st.N/2);
@@ -54,7 +54,7 @@ int res_number(segment_tree &st, int pos){
         }
     }
     return operation(ans, st.data[start]);
-}//pos в изначальном массиве
+}//pos in the staring vector
 
 void changing_segment_help(segment_tree &st, int start, int l, int r, int num){
     if(start<st.N && l<r){
@@ -76,9 +76,8 @@ void changing_segment(segment_tree &st, int l, int r, int num){
     l+=(st.N/2);
     r+=(st.N/2);
     changing_segment_help(st, 1, l, r, num);
-}//[l, r) в изначальном массиве
+}//[l, r) in starting vector
 
-//скопировал  И ЗРЯ! ВЕДЬ НАДО ЗАПОЛНЯТЬ data НЕЙТРАЛЬНЫМИ ЭЛЕМЕНТАМИ ПО УМОЛЧАНИЮ
 void start_segment_tree( segment_tree &st, vector<int> a){
     int n=a.size();
     int N=1;
@@ -98,4 +97,4 @@ void start_segment_tree( segment_tree &st, vector<int> a){
         st.left[i]=st.left[2*i];
         st.right[i]=st.right[2*i+1];
     }
-}//создание дерева отрезков по массиву a для некой операции (возможно, надо менять изчальные данные для листов -19.10.25 я убрал) 
+}//creating segment tree for vector
