@@ -14,38 +14,32 @@ return v;
 return p[v] = root (p[v]);
 }
 bool unite (int u, int v) {
-u = root (u);
-v = root (v);
-if (u == v)
-return false;
-if (r[u] > r[v])
-swap (u, v);
-p[u] = v;
-if (r[u] == r[v])
-r[v] += 1;
-return true;
+ u = root (u);
+ v = root (v);
+ if (u == v)
+ return false;
+ if (r[u] > r[v])
+ swap (u, v);
+ p[u] = v;
+ if (r[u] == r[v])
+ r[v] += 1;
+ return true;
 }
  
 };
 
 
-//примеры
-
-int main() {
-    // Создаем DSU для 5 элементов (0, 1, 2, 3, 4)
+/*example
+ int main() {
+    // creating DSU for 5 elements (0, 1, 2, 3, 4)
     Dsu dsu(5);
     
-    // Объединяем элементы в множества
-    dsu.unite(0, 1);  // Создаем множество {0, 1}
-    dsu.unite(2, 3);  // Создаем множество {2, 3}
-    dsu.unite(1, 2);  // Объединяем {0, 1} и {2, 3} в {0, 1, 2, 3}
+    // uniting elements into sets
+    dsu.unite(0, 1);  // Creating set {0, 1}
+    dsu.unite(2, 3);  // Creating set {2, 3}
+    dsu.unite(1, 2);  // Unite {0, 1} and {2, 3} into {0, 1, 2, 3}
     
-    // Проверяем корни
-    cout << "Корень 0: " << dsu.root(0) << endl;
-    cout << "Корень 1: " << dsu.root(1) << endl;
-    cout << "Корень 2: " << dsu.root(2) << endl;
-    cout << "Корень 3: " << dsu.root(3) << endl;
-    cout << "Корень 4: " << dsu.root(4) << endl;
-    
+    // Checking roots
+    cout << "Root 0: " << dsu.root(0) << endl;
     return 0;
-}
+}*/
