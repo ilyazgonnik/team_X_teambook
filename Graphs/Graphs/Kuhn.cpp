@@ -1,3 +1,16 @@
+bool Graph::try_Kuhn (int v, vector<int> &mt, vector<bool> &vis){
+	if (vis[v])  {return false;}
+	vis[v] = true;
+	for (auto to: Graph::adj[v]) {
+		if (mt[to] == -1 || Graph::try_Kuhn (mt[to], mt, vis)) {
+			mt[to] = v;
+			return true;
+		}
+	}
+	return false;
+}
+
+
 vector<pair<int, int> > Kuhn(){
     int n=Graph::V;
     auto ti=Graph::bfs(0);
