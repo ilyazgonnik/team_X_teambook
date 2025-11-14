@@ -1,24 +1,13 @@
 \documentclass[a4paper,twocolumn]{extarticle}
 
-% --- Современная настройка кодировки и русского языка ---
-\usepackage[utf8]{inputenc}
-
-\usepackage{listings}
-\lstset{
-    inputencoding=utf8,
-    extendedchars=true,
-    texcl=true, % комментарии как LaTeX код
-    breaklines=true,
-    basicstyle=\small\ttfamily,
-    columns=fullflexible
-}
-
-\usepackage[T2A]{fontenc}          % поддержка кириллицы в pdfLaTeX
-\usepackage[russian,english]{babel} % порядок языков не критичен
-\usepackage{lmodern}               % современные латинские шрифты
+\usepackage{lmodern}
 \usepackage{anyfontsize}
 %\renewcommand{\normalsize}{\fontsize{7pt}{8.4pt}\selectfont}
 \usepackage{setspace}
+\usepackage{pscyr}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
 \usepackage{extsizes}
 \usepackage[a4paper,top=0.5cm,bottom=1.0cm,left=1.0cm,right=0.5cm,nomarginpar,foot=0.3cm,includehead]{geometry}
 \usepackage{lastpage}
@@ -30,20 +19,21 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{listingsutf8} % позволяет listings читать UTF-8 файлы
+
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
     filecolor=magenta,
     urlcolor=blue,
 }
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{1,1,1}
+
 \lstdefinestyle{codestyle}{
     language=C++,
-    inputencoding=utf8,
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
@@ -62,9 +52,8 @@
 
 \lstset{
     style=codestyle,
-    extendedchars=true, % исправлено: \true → true
+    extendedchars=\true,
 }
-
 \setlength{\columnseprule}{0.4pt}
 \setlength{\columnsep}{30pt}
 
