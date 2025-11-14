@@ -51,7 +51,7 @@ vector<vector<pair<int, int> > > bicomponents(vector<vector<int> >&adj){
     vector<vector<pair<int, int> > > ans1(maxcolor);
     auto edge_component = [&](int a, int b) -> int {
       int x = a, y = b;
-      if (h[x] < h[y]){swap(x, y);} // x — lower vertice (deeper)
+      if (h[x] < h[y]){swap(x, y);} // x - lower vertice (deeper)
       return color[x];
     };
     for(int u=0;u<n;u++){
