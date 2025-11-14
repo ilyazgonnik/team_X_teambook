@@ -28,7 +28,7 @@ bool intersect_1 (int a, int b, int c, int d) {
 
 bool intersect_seg (pt a, pt b, pt c, pt d) {
 	return intersect_1 (a.x, b.x, c.x, d.x) && intersect_1 (a.y, b.y, c.y, d.y) && (D_area(a,b,c) * D_area(a,b,d) <= 0) && (D_area(c,d,a) * D_area(c,d,b) <= 0);
-}//AB пересекаем с CD
+}//AB intersect with CD
 
 struct line {
 	long double a, b, c;
