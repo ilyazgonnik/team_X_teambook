@@ -1,6 +1,6 @@
 const int sieve_C = 1e7+5;
-vector<int> pr(0);//простые числа до C (не вкл)
-vector<int> lp(sieve_C);//минимальный простой делитель 
+vector<int> pr(0);//primes up to C (not incl.)
+vector<int> lp(sieve_C);//minimal prime divisor
 
 void linear_sieve(){
     for (int i = 2; i < sieve_C; ++i) {
