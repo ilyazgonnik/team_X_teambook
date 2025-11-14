@@ -1,0 +1,9 @@
+Algoeithm finds strong component in $g$, if there is path $i \rightarrow j$, then $scc[i] \le scc[j]$
+
+\lstinputlisting{Graphs/Directed Graphs/SCC.cpp}
+To solve 2-$\mathcal{SAT}$, create graph on $2n$ vertices, edges $i \Rightarrow j$ и $(j\oplus1) \Rightarrow (i \oplus 1)$ must be add both.
+After it iff \texttt{scc[2 * i] = scc[2 * i + 1]}, then the solve doesn't exist; if \texttt{scc[2 * i + 0] < scc[2 * i + 1]}, then there is implication $\neg i \Rightarrow i$, so put $i = $\texttt{true}.
+
+%https://codeforces.com/contest/228/submission/230077013
+%https://judge.yosupo.jp/submission/168750
+%https://judge.yosupo.jp/submission/168753
