@@ -1,4 +1,4 @@
-//Изменение числа, узнать на отрезке
+//changing value, result on segment
 struct segment_tree{
     int N;
     vector<int> data;
@@ -11,7 +11,7 @@ int operation(int now_left, int now_right){
     .return min(now_left, now_right);//min
     .return max(now_left, now_right);//max
     .return gcd(now_left, now_right);//gcd 
-    .return (now_left*now_right)%mod;//умножение по модулю
+    .return (now_left*now_right)%mod;//multiplcation by modulo
 }
 
 int neutral(){
@@ -19,7 +19,7 @@ int neutral(){
     .return inf;//min
     .return -inf;//max
     .return 0;//gcd
-    .return 1;//умножение (?по модулю?)
+    .return 1;//multiplcation by modulo
 }
 
 bool in(segment_tree &st, int v, int l, int r){
@@ -29,7 +29,7 @@ bool in(segment_tree &st, int v, int l, int r){
     else{
         return false;
     }
-}//лежит ли конус v в промежутке [l, r)
+}//Is the cone of v in [l, r)
 
 bool intersect(segment_tree &st, int v, int l, int r){
     if(st.left[v]>=r || st.right[v]<=l){
@@ -38,7 +38,7 @@ bool intersect(segment_tree &st, int v, int l, int r){
     else{
         return true;
     }
-}//пересекается ли конус v с промежутком [l, r)
+}//Is the cone of v intersect with [l, r)
 
 void res_on_segment_help(segment_tree &st, int l, int r, int start, int &ans){
     if(start<st.N && l<r){
@@ -62,7 +62,7 @@ int res_on_segment(segment_tree &st, int l, int r){
     int ans=neutral();  
     res_on_segment_help(st, l, r, 1, ans);
     return ans;
-}//[l, r) в изначальном массиве
+}//[l, r) in the starting vector 
 
 void changing_number(segment_tree &st, int pos, int new_value){
     pos+=(st.N/2);
@@ -71,7 +71,8 @@ void changing_number(segment_tree &st, int pos, int new_value){
         st.data[pos]=operation(st.data[2*pos], st.data[2*pos+1]);
         pos/=2;
     }
-}//pos в изначальном массиве//будут проблемы если менять + на что-то другое в самом начале этой подпрограммы
+}//pos in staring vector//There will be problems if we will change + to something else in the beggining of this subprogramm.
+//14.11.25 Don't get it
 
 void start_segment_tree( segment_tree &st, vector<int> a){
     int n=a.size();
@@ -93,4 +94,4 @@ void start_segment_tree( segment_tree &st, vector<int> a){
         st.left[i]=st.left[2*i];
         st.right[i]=st.right[2*i+1];
     }
-}//создание дерева отрезков по массиву a для некой операции (возможно, надо менять изчальные данные для листов -19.10.25 я убрал) 
+}//creating the segment tree 
