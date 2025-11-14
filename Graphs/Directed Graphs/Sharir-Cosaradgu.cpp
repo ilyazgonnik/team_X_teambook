@@ -42,5 +42,5 @@ vector<int> Sharir_Cosaradgu(vector<vector<int> > &g){
         }
     }
     return component;
-}//вектор номеров компонент сильной связности
+}//number of your strong component
  
