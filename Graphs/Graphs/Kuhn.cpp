@@ -1,8 +1,8 @@
-bool Graph::try_Kuhn (int v, vector<int> &mt, vector<bool> &vis){
+bool try_Kuhn (int v, vector<int> &mt, vector<bool> &vis, vector<vector<int> > &adj){
 	if (vis[v])  {return false;}
 	vis[v] = true;
-	for (auto to: Graph::adj[v]) {
-		if (mt[to] == -1 || Graph::try_Kuhn (mt[to], mt, vis)) {
+	for (auto to: adj[v]) {
+		if (mt[to] == -1 || try_Kuhn (mt[to], mt, vis, adj)) {
 			mt[to] = v;
 			return true;
 		}
@@ -11,10 +11,9 @@ bool Graph::try_Kuhn (int v, vector<int> &mt, vector<bool> &vis){
 }
 
 
-vector<pair<int, int> > Kuhn(){
-    int n=Graph::V;
-    auto ti=Graph::bfs(0);
-    vector<int> dist=ti.first;
+vector<pair<int, int> > Kuhn(vector<vector<int> > &adj){
+    int n=adj.size();
+    auto [dist, o]=bfs(0, adj);
     int odd=0;
     int even=0;
     vector<bool> left(n);
@@ -37,7 +36,7 @@ vector<pair<int, int> > Kuhn(){
     for(int v=0;v<n;v++){
         if(left[v]){
             vis.assign(n, false);
-            try_Kuhn(v, mt, vis);
+            try_Kuhn(v, mt, vis, adj);
         }
     }
     vector<pair<int, int> > ans(0);
