@@ -54,23 +54,8 @@ vector<int> multiply(vector<int> const& a, vector<int> const& b) {
   return result;
 }
 //35d9d0
-/*int32_t main()
-{
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	int n;
-	cin>>n;
+/*
     vector<int> a(n);
     vector<int> b(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    for(int i=0;i<n;i++){
-        cin>>b[i];
-    }
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!auto c=multiply(a, b);
-    for(int i=0;i<c.size();i++){
-        cout<<c[i]<<" ";
-    }
-    return 0;
-}*/
+    vector<int> c=multiply(a, b);
+*/
