@@ -32,5 +32,5 @@ bool in_polygon(vector<pt> &a, pt p){
       return inT(a[l], a[0], a[r], p);
     };
     return inP(p);
-}//нестрого внутри?
-//a - обязательно против часовой стрелки!!!!
+}//on board is okey?
+//a - NESSESSARRRYYY COUNTERCLOCKWISE!!!!
