@@ -47,11 +47,11 @@ vector<vector<pair<int, int> > > bicomponents(vector<vector<int> >&adj){
     int maxcolor=-1;
     for(auto v: color){
         maxcolor=max(v, maxcolor);
-    }maxcolor++;//наверное, достаточно поставить n+m но мне лень об этом думать
+    }maxcolor++;//maybe, it's okey to just put n+m, but i am too lazy to think about it
     vector<vector<pair<int, int> > > ans1(maxcolor);
     auto edge_component = [&](int a, int b) -> int {
       int x = a, y = b;
-      if (h[x] < h[y]){swap(x, y);} // x — нижняя вершина (глубже)
+      if (h[x] < h[y]){swap(x, y);} // x — lower vertice (deeper)
       return color[x];
     };
     for(int u=0;u<n;u++){
@@ -67,16 +67,16 @@ vector<vector<pair<int, int> > > bicomponents(vector<vector<int> >&adj){
         }
     }
     return ans;
-}//распределение ребер по компонентам двусвязности 
-//ребра будут как и uv так и vu 
-//только для связных графов--надо менять колво вершин n , колво ребер -- m, find(find, НЕ ТОЛЬКО ОТ 0), аналогично с  build 
+}//distribution edges to bicomponents 
+//edges will be uv and vu 
+//ONLY FOR CONNECTED GRAPHS--change n , number of edges -- m, find(find, NOT ONLY FROM 0), analogically with build 
 
 
 vector<pair<int, int> >  bridges (vector<vector<int> > &adj){
     auto dv = bicomponents(adj);
     vector<pair<int, int> > ans;
     for(auto a: dv){
-        if(a.size()==2){//тут двойка, потому что uv vu всегда в одной бикомпоненте
+        if(a.size()==2){//there is 2, because uv vu always will be in the same bicomponent
             auto b=a[0];
             pair<int, int> c={b.second, b.first};
             ans.push_back(b);
@@ -84,11 +84,11 @@ vector<pair<int, int> >  bridges (vector<vector<int> > &adj){
         }
     }
     return ans;
-}//нахождение всех мостов. оба u--v, v--u будут 
+}//finding all bidges. Both u--v, v--u will be there 
 vector<bool> CutPoints(vector<vector<int> > &adj){
     int n=adj.size();
     auto dv=bicomponents(adj);
-    map<pair<int, int>, int> e;//по вершинам - номер ребра 
+    map<pair<int, int>, int> e;//from vertices - number of edge (Maybe unordered map?) 
     int m=0;
     for(int u=0;u<n;u++){
         for(auto v: adj[u]){
@@ -115,7 +115,7 @@ vector<bool> CutPoints(vector<vector<int> > &adj){
         }
     }
     return ans;
-}//изолированные вершины - да 
-//лишний log
+}//isolated vertice - yes
+//extra log - for you
 
-//для проверки можно использовать 1046-С
+//for checking - use 1046-С
