@@ -8,4 +8,4 @@ vector<int> occurences(string &sample, string &s){
         }
     }
     return ans;
-}//строки не должны содержать @
+}//strings MUST NOT contains: @
