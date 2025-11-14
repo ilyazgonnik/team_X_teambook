@@ -47,11 +47,11 @@ bool intersect_line (line m, line n, pt & res) {
 	res.x = - det (m.c, m.b, n.c, n.b) / zn;
 	res.y = - det (m.a, m.c, n.a, n.c) / zn;
 	return true;
-}//если пересекаются, то результат записывается в res (надо изначально передать точку)
+}//if intersecting, then results is in res! genious! 
  
 bool parallel (line m, line n) {
 	return abs (det (m.a, m.b, n.a, n.b)) < EPS;
-}//равные прямые параллельны
+}//equals lines are parallel
  
 bool equivalent (line m, line n) {
 	return abs (det (m.a, m.b, n.a, n.b)) < EPS
