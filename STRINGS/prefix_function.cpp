@@ -10,4 +10,4 @@ vector<int> prefix_function(string s) {
     }
     return pi;
 }
-// Prefix-function π[i] — max (not i+1) lenght of suffix of s[0..i], that is prefix of our string
+// Prefix-function p[i] - max (not i+1) lenght of suffix of s[0...i], that is prefix of our string
