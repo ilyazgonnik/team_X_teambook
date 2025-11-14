@@ -18,4 +18,4 @@ vector<pair<int, int> > factorization(int n){
         ans.push_back({m, 1});
     }
     return ans;
-}//простое, степень
+}//{prime, deg}
