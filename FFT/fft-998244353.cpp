@@ -58,23 +58,8 @@ template<int M, int K, int G> struct Fft {
   }
 };
 Fft<998244353,23,31> muls;
-/*int32_t main()
-{
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	int n;
-	cin>>n;
+/*
     vector<int> a(n);
     vector<int> b(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    for(int i=0;i<n;i++){
-        cin>>b[i];
-    }
-   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! auto c=muls.convolution(a, b);
-    for(int i=0;i<c.size();i++){
-        cout<<c[i]<<" ";
-    }
-    return 0;
-}*/
+    vector<int> c=muls.convolution(a, b);
+*/
