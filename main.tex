@@ -5,6 +5,7 @@
 %\renewcommand{\normalsize}{\fontsize{7pt}{8.4pt}\selectfont}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc} % Добавлено для поддержки кириллицы
 \usepackage[english]{babel}
 
 \usepackage{extsizes}
@@ -24,6 +25,8 @@
     linkcolor=black,
     filecolor=magenta,
     urlcolor=blue,
+    pdftitle={Code Library},
+    pdfauthor={St. Petersburg State University}
 }
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -36,23 +39,28 @@
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily,
+    basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,
     breaklines=true,
     captionpos=b,
     keepspaces=true,
+    numbers=left,
     numbersep=5pt,
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    tabsize=2
+    tabsize=2,
+    extendedchars=true,
+    inputencoding=utf8,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
 }
 
 \lstset{
-    style=codestyle,
-    extendedchars=\true,
+    style=codestyle
 }
+
 \setlength{\columnseprule}{0.4pt}
 \setlength{\columnsep}{30pt}
 
@@ -60,17 +68,18 @@
     \pagestyle{fancy}
     \fancyhead[LO]{St. Petersburg State University (Ananev, Kuznetsov, Zgonnik)}
     \fancyhead[R]{Page \thepage~of~\pageref{LastPage}}
+    \fancyfoot{}
 
-{\fontsize{7.8pt}{8.5pt}\selectfont
-    \tableofcontents
-    \newpage
-    \lstinputlisting{starting/starting.cpp}
-    \lstinputlisting{rng/rng.cpp}
-    \section{Number Theory}
-    \lstinputlisting{Number Theory/fastpow/fastpow.cpp}
-    \lstinputlisting{Number Theory/Linear Sieve/Linear Sieve.cpp}
-    \lstinputlisting{Number Theory/factorization sqrt/factorization sqrt.cpp}
-    \lstinputlisting{Number Theory/Divisors/All divisors.cpp}
-}
+    {\fontsize{7.8pt}{8.5pt}\selectfont
+        \tableofcontents
+        \newpage
+        \lstinputlisting{starting/starting.cpp}
+        \lstinputlisting{rng/rng.cpp}
+        \section{Number Theory}
+        \lstinputlisting{Number Theory/fastpow/fastpow.cpp}
+        \lstinputlisting{Number Theory/Linear Sieve/Linear Sieve.cpp}
+        \lstinputlisting{Number Theory/factorization sqrt/factorization sqrt.cpp}
+        \lstinputlisting{Number Theory/Divisors/All divisors.cpp}
+    }
     \newpage
 \end{document}
