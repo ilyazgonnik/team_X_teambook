@@ -1,35 +1,33 @@
-pair<vector<int>, vector<int>> dijkstra(const vector<vector<pair<int, int>>>& graph, int start) {
-    int n = graph.size();
-    vector<int> distances(n, INF);
-    vector<int> parents(n, -1);
+pair<vector<int>, vector<int>> dijkstra(vector<vector<pair<int, int>>>& g, int start) {
+    int n = g.size();
+    vector<int> d(n, INF);
+    vector<int> p(n, -1);
     
-    distances[start] = 0;
+    d[start] = 0;
     priority_queue<pair<int, int>> pq;
-    pq.push(make_pair(0, start));
+    pq.push({0, start});
     
     while (!pq.empty()) {
-        int current_vertex = pq.top().second;
-        int current_distance = -pq.top().first;
+        int cur = pq.top().second;
+        int curd = -pq.top().first;
         pq.pop();
         
-        // Пропускаем устаревшие записи в очереди
-        if (current_distance > distances[current_vertex]) {
+        if (curd > d[cur]) {
             continue;
         }
         
-        // Обходим всех соседей текущей вершины
-        for (const auto& edge : graph[current_vertex]) {
-            int neighbor = edge.first;
-            int edge_weight = edge.second;
+        for (auto edge : g[cur]) {
+            int to = edge.first;
+            int w = edge.second;
             
-            // Релаксация ребра
-            if (distances[current_vertex] + edge_weight < distances[neighbor]) {
-                distances[neighbor] = distances[current_vertex] + edge_weight;
-                parents[neighbor] = current_vertex;
-                pq.push(make_pair(-distances[neighbor], neighbor));
+
+            if (d[cur] + w < d[to]) {
+                d[neighbor] = d[cur] + w;
+                p[neighbor] = cur;
+                pq.push({-distances[to], to});
             }
         }
     }
     
-    return make_pair(distances, parents);
+    return {d, p};
 }
