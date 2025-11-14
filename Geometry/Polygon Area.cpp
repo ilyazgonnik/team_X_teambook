@@ -6,4 +6,4 @@ int D_area_polygon(vector<pt> &polygon){
         ans+=D_area(zero, polygon[i], polygon[(i+1)%n]);
     }
     return ans;
-}//с точностью до знака (удвоенная!)
+}//by the sign (can be + or -) DOUBLED!
