@@ -19,4 +19,4 @@ bool Miller_Rabin(int n){
         if(!ok) return false;
     }
     return true;
-}//проверка на простоту
+}//prime?
