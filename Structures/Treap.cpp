@@ -122,7 +122,7 @@ int size() { return sz(root); }
 
 
 /*
-Implicit Treap — randomized balanced BST representing an array.
+Implicit Treap - randomized balanced BST representing an array.
 Positions are determined by subtree sizes (no explicit keys).
 Uses:
 - Insert / erase elements at arbitrary positions
