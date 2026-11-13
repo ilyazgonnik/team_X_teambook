@@ -72,7 +72,7 @@ SuffixArray(const string& s) {
 };
 
 /*
-Suffix Array — sorted order of all suffixes of a string.
+Suffix Array - sorted order of all suffixes of a string.
 sa[i]   = starting position of the i-th smallest suffix
 rank[i] = position of suffix s[i..n-1] in sa
 lcp[i]  = LCP of suffixes sa[i] and sa[i+1]
