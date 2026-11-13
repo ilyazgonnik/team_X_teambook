@@ -1,26 +1,30 @@
 name: Build LaTeX PDF
-  
+
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5        # v5 гарантированно на Node 24
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4   # опционально, но рекомендуется
         with:
-          root_file: main.tex   # ← здесь указываем исходный файл
+          root_file: main.tex
 
       - name: Rename PDF
-        run: mv main.pdf teambooX.pdf   # ← переименовываем результат
+        run: mv main.pdf teambooX.pdf
 
       - name: Upload PDF
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5 # было v4 → Node 20
         with:
-          name: teambooX               # ← имя артефакта
-          path: teambooX.pdf           # ← путь к PDF
+          name: teambooX
+          path: teambooX.pdf
+          overwrite: true                # чтобы re-run не падал
